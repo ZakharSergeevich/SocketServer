@@ -1,0 +1,1 @@
+C:\Users\zakha\OneDrive\ACER_E14\programming\dev\C#_learning\SocketServer\SocketServer\bin\Debug\SocketServer.exe.config
