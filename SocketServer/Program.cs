@@ -13,7 +13,7 @@ namespace SocketServer
     {
         // Конструктор класса. Ему нужно передавать принятого клиента от TcpListener
         public Client(TcpClient Client)
-        {
+        {            
             // Код простой HTML-странички
             string Html = "<html><body><h1>It works!</h1></body></html>";
             // Необходимые заголовки: ответ сервера, тип и длина содержимого. После двух пустых строк - само содержимое
@@ -21,9 +21,10 @@ namespace SocketServer
             // Приведем строку к виду массива байт
             byte[] Buffer = Encoding.ASCII.GetBytes(Str);
             // Отправим его клиенту
-            Client.GetStream().Write(Buffer, 0, Buffer.Length);
+            Client.GetStream().Write(Buffer, 0, Buffer.Length);            
             // Закроем соединение
             Client.Close();
+            Console.WriteLine("New User");
         }
     }
 
@@ -34,7 +35,7 @@ namespace SocketServer
 
         // Запуск сервера
         public Server(int Port)
-        {
+        {            
             // Создаем "слушателя" для указанного порта
             Listener = new TcpListener(IPAddress.Any, Port);
             Listener.Start(); // Запускаем его
@@ -61,8 +62,8 @@ namespace SocketServer
         static void Main(string[] args)
         {
 
-            // Создадим новый сервер на порту 80
-            new Server(80);
+            // Создадим новый сервер на порту 52525
+            new Server(52525);
         }
     }
 }
